@@ -25,7 +25,7 @@ def change_csv(): #NPInter3のファイルをCSVファイルに変換する関�
             del row[7:10]
             del row[0]
 
-            if row[1].find('NULL') == -1 or row[4].find('NULL')== -1: #databaseのIDがNULLのものを削除
+            if row[1].find('NULL') == -1 and row[4].find('NULL')== -1: #databaseのIDがNULLのものを削除
 #            rows.append(row)
 #            sorted(set(rows),key=rows.index)
                 w = csv.writer(fp,delimiter=',')
