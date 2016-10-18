@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 def change_csv(): #NPInter3のファイルをCSVファイルに変換する関数
-    fp = open("interaction_NPInter1018.csv","w")
+    fp = open("interaction_NPInter1018_2.csv","w")
 
     #データの読み込み
 #    dataset = pd.read_table("interaction_NPInter[v3.0].txt",encoding='cp037')
@@ -24,10 +24,12 @@ def change_csv(): #NPInter3のファイルをCSVファイルに変換する関�
             del row[11:]
             del row[7:10]
             del row[0]
+
+            if row[1].find('NULL') == -1 or row[4].find('NULL')== -1: #databaseのIDがNULLのものを削除
 #            rows.append(row)
 #            sorted(set(rows),key=rows.index)
-            w = csv.writer(fp,delimiter=',')
-            w.writerow(row)
+                w = csv.writer(fp,delimiter=',')
+                w.writerow(row)
     fp.close()
 change_csv()
 
